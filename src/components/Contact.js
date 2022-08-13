@@ -17,17 +17,17 @@ const Contact = () => {
         </Typography>
       </Grid>
 
-      <Divider style={{ width: "40%" }} />
+      <Divider style={{ width: "55%" }} />
 
-      <Grid item xs={3}>
+      <Grid item >
         <Button
           variant="outlined"
           sx={{
             borderRadius: 0,
             color: theme.palette.secondary.main,
             border: `1px solid  ${theme.palette.secondary.main}`,
-            width: "50%",
-            // p: 1.5,
+            width: "100%",
+            p: 1.2,
             ":hover": {
               bgcolor: theme.palette.primary.main,
               color: "white",

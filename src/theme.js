@@ -11,5 +11,8 @@ export const theme = createTheme({
     darkblue: {
       main: "rgb(32,58,76)",
     },
+    grey: {
+      main: "rgb(234,234,235)",
+    },
   },
 });
