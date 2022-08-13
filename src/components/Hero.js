@@ -16,7 +16,7 @@ const styles = {
 
 const Hero = () => {
   return (
-    <Grid item sx={{ position: "relative" }}>
+    <Grid item sx={{ position: "relative", mb: 10 }}>
       <img
         style={{ width: "100%", height: "65vh", objectFit: "cover" }}
         src={hero}
