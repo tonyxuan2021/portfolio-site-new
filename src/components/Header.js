@@ -37,6 +37,9 @@ export default function Header() {
             <Typography variant="body2" color={theme.palette.secondary.main}>
               CONTACT ME
             </Typography>
+            <Typography variant="body2" color={theme.palette.secondary.main}>
+              RESUME
+            </Typography>
           </Grid>
         </Toolbar>
       </AppBar>

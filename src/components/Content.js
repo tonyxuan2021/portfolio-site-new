@@ -8,12 +8,11 @@ const Content = () => {
     <Grid
       container
       display="flex"
-    //   justifyContent="space-between"
-    gap={8}
+      gap={8}
       alignItems="center"
-      sx={{ height: "70vh" }}
+      sx={{ height: "70vh", mb: 15 }}
     >
-      <Grid item xs={5.5}>
+      <Grid item xs={5}>
         <Grid item>
           <img
             style={{
@@ -32,7 +31,7 @@ const Content = () => {
         sx={{
           height: "100%",
           borderTop: "1px solid lightgrey",
-          orderBottom: "1px solid lightgrey",
+          borderBottom: "1px solid lightgrey",
           p: 3,
         }}
         display="flex"
@@ -59,8 +58,12 @@ const Content = () => {
             borderRadius: 0,
             color: theme.palette.secondary.main,
             border: `1px solid  ${theme.palette.secondary.main}`,
-            width: "60%",
-            p:2
+            width: "50%",
+            p: 1.5,
+            ":hover": {
+              bgcolor: theme.palette.primary.main,
+              color: "white",
+            },
           }}
           variant="outlined"
         >

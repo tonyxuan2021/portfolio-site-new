@@ -16,7 +16,7 @@ const styles = {
 
 const Hero = () => {
   return (
-    <Grid item sx={{ position: "relative", mb: 10 }}>
+    <Grid item sx={{ position: "relative", mb: 15 }}>
       <img
         style={{ width: "100%", height: "65vh", objectFit: "cover" }}
         src={hero}
@@ -31,6 +31,7 @@ const Hero = () => {
             position: "absolute",
             bottom: 0,
             pt: 5,
+            pr: 5,
           },
         ]}
         gap={5}
@@ -48,10 +49,14 @@ const Hero = () => {
             pr: 3,
             display: "flex",
             justifyContent: "space-between",
+            ":hover": {
+              bgcolor: theme.palette.primary.main,
+              color: "white",
+            },
           }}
           variant="contained"
         >
-          <img src={downArrow} style={{ width: "15px" }}></img>
+          <img className="hero__logo" src={downArrow} style={{ width: "15px" }}></img>
           <Typography variant="body2">About me</Typography>
         </Button>
       </Grid>
