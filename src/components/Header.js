@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import { theme } from "../theme";
-import { Grid } from "@mui/material";
+import { Grid, Menu, MenuItem } from "@mui/material";
 import logo from "../assets/logo.svg";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const styles = {
   flexRow: {
@@ -19,6 +20,16 @@ const styles = {
 };
 
 export default function Header() {
+  const [menu, setMenu] = useState();
+
+  const handleOpenMenu = (event) => {
+    setMenu(event.currentTarget);
+  };
+
+  const handleCloseMenu = () => {
+    setMenu(null);
+  };
+
   return (
     <Box sx={{ flexGrow: 1, pl: 7, pr: 7, pt: 3, pb: 3 }}>
       <AppBar
@@ -27,22 +38,76 @@ export default function Header() {
       >
         <Toolbar sx={[styles.flexRow, { justifyContent: "space-between" }]}>
           <img src={logo}></img>
-          <Grid item sx={styles.flexRow} gap={3}>
-            <Typography variant="body2" color={theme.palette.primary.main}>
-              HOME
-            </Typography>
-            <Typography variant="body2" color={theme.palette.secondary.main}>
-              PORTFOLIO
-            </Typography>
-            <Typography variant="body2" color={theme.palette.secondary.main}>
-              CONTACT ME
-            </Typography>
-            <Typography variant="body2" color={theme.palette.secondary.main}>
-              RESUME
-            </Typography>
+          <Grid
+            item
+            sx={[styles.flexRow, { display: { xs: "none", sm: "flex" } }]}
+            gap={3}
+          >
+            {navItems.map((item) => {
+              return (
+                <Typography variant="body2" color={item.color}>
+                  {item.title}
+                </Typography>
+              );
+            })}
+          </Grid>
+          <Grid item sx={{ display: { xs: "flex", sm: "none" } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              //   onClick={handleOpenMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={menu}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              open={Boolean(menu)}
+              //   onClose={handleCloseMenu}
+              sx={{
+                display: { xs: "block", md: "none" },
+              }}
+            >
+              {/* {navItems.map((item) => (
+                <MenuItem key={item} onClick={handleCloseMenu}>
+                  <Typography textAlign="center">{item}</Typography>
+                </MenuItem>
+              ))} */}
+            </Menu>
           </Grid>
         </Toolbar>
       </AppBar>
     </Box>
   );
 }
+
+const navItems = [
+  {
+    title: "HOME",
+    color: theme.palette.primary.main,
+  },
+  {
+    title: "PORTFOLIO",
+    color: theme.palette.secondary.main,
+  },
+  {
+    title: "CONTACT ME",
+    color: theme.palette.secondary.main,
+  },
+  {
+    title: "RESUME",
+    color: theme.palette.secondary.main,
+  },
+];

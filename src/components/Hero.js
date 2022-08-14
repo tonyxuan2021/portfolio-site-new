@@ -15,6 +15,9 @@ const HeroImg = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down("md")]: {
     height: "50vh",
   },
+  [theme.breakpoints.down("sm")]: {
+    height: "30vh",
+  },
 }));
 
 const Intro = styled(Grid)(({ theme }) => ({
@@ -29,36 +32,50 @@ const Intro = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down("md")]: {
     width: "70%",
   },
-  //   [theme.breakpoints.down("sm")]: {
-  //     position: "static",
-  //     width: "100%",
-  //   },
+  [theme.breakpoints.down("sm")]: {
+    paddingTop: 0,
+    bottom: -200,
+    width: "100%",
+  },
 }));
+
+const IntroText = styled(Typography)(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "30px",
+    marginTop: "20px",
+  },
+}));
+
+const IntroBtn = styled(Button)(({ theme }) => ({
+  width: "55%",
+  borderRadius: 0,
+  background: theme.palette.darkblue.main,
+  padding: 15,
+  paddingLeft: 30,
+  paddingRight: 30,
+  display: "flex",
+  justifyContent: "space-between",
+  ":hover": {
+    bgcolor: theme.palette.primary.main,
+    color: "white",
+  },
+
+  [theme.breakpoints.down("sm")]: {
+    width: "70%",
+    padding: 10,
+  },
+}));
+
+
 
 const Hero = () => {
   return (
     <HeroImg item>
       <Intro item gap={5}>
-        <Typography variant="h3" fontWeight={600}>
+        <IntroText variant="h3" fontWeight={700}>
           Hey, I'm Tony and I am a full-stack web developer
-        </Typography>
-        <Button
-          sx={{
-            width: "55%",
-            borderRadius: 0,
-            background: theme.palette.darkblue.main,
-            p: 1.5,
-            pl: 3,
-            pr: 3,
-            display: "flex",
-            justifyContent: "space-between",
-            ":hover": {
-              bgcolor: theme.palette.primary.main,
-              color: "white",
-            },
-          }}
-          variant="contained"
-        >
+        </IntroText>
+        <IntroBtn variant="contained">
           <img
             className="hero__logo"
             src={downArrow}
@@ -67,7 +84,7 @@ const Hero = () => {
           <Typography variant="body2" color="white">
             About me
           </Typography>
-        </Button>
+        </IntroBtn>
       </Intro>
     </HeroImg>
   );

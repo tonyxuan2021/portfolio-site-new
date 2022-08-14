@@ -4,29 +4,45 @@ import { theme } from "../theme";
 import { styled } from "@mui/material/styles";
 
 const DividerStyle = styled(Divider)(({ theme }) => ({
-  width: "55%",
+  width: "40%",
   [theme.breakpoints.down("md")]: {
     width: "20%",
+  },
+  [theme.breakpoints.down("sm")]: {
+    display: "none",
+  },
+}));
+
+const WrapperStyle = styled(Grid)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "space-between",
+  gap: 20,
+  alignItems: "center",
+  marginBottom: 100,
+
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+    justifyContent: "center",
+  },
+}));
+
+const ContactText = styled(Typography)(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    textAlign: "center",
+    fontSize: 30,
+    marginBottom: 30,
   },
 }));
 
 const Contact = () => {
   return (
-    <Grid
-      container
-      display="flex"
-      justifyContent="space-between"
-      alignItems="center"
-      sx={{ mb: 15 }}
-    >
-      <Grid item md={3} xs={6}>
-        <Typography variant="h4" fontWeight={700}>
+    <WrapperStyle>
+      <Grid item md={3} sm={6}>
+        <ContactText variant="h4" fontWeight={700}>
           Interested in doing a project together?
-        </Typography>
+        </ContactText>
       </Grid>
-
       <DividerStyle />
-
       <Grid item>
         <Button
           variant="outlined"
@@ -45,7 +61,7 @@ const Contact = () => {
           contect me
         </Button>
       </Grid>
-    </Grid>
+    </WrapperStyle>
   );
 };
 

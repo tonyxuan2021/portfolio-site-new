@@ -10,6 +10,15 @@ const ProfileImg = styled("img")(({ theme }) => ({
   [theme.breakpoints.down("md")]: {
     height: "45vh",
   },
+  [theme.breakpoints.down("sm")]: {
+    height: "30vh",
+  },
+}));
+
+const ImgWrap = styled(Grid)(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    marginTop: 120,
+  },
 }));
 
 const AboutMeText = styled(Typography)(({ theme }) => ({
@@ -33,6 +42,11 @@ const AboutMeWrap = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down("md")]: {
     justifyContent: "center",
   },
+  [theme.breakpoints.down("sm")]: {
+    padding: 0,
+    paddingTop: 40,
+    paddingBottom: 40,
+  },
 }));
 
 const PortfolioBtn = styled(Button)(({ theme }) => ({
@@ -51,13 +65,18 @@ const PortfolioBtn = styled(Button)(({ theme }) => ({
     width: "70%",
     padding: 10,
   },
+  [theme.breakpoints.down("sm")]: {
+    padding: 5,
+    justifyContent: "center",
+    width: "80%",
+  },
 }));
 
 const Content = () => {
   return (
     <Grid container display="flex" gap={8} alignItems="center" sx={{ mb: 15 }}>
-      <Grid item md={5} xs={4.5}>
-        <Grid item>
+      <Grid item md={5} sm={4.5} xs={12}>
+        <ImgWrap item>
           <ProfileImg
             style={{
               objectFit: "cover",
@@ -65,9 +84,9 @@ const Content = () => {
             }}
             src={photo}
           ></ProfileImg>
-        </Grid>
+        </ImgWrap>
       </Grid>
-      <AboutMeWrap item md={5} xs={6}>
+      <AboutMeWrap item md={5} sm={6} xs={12}>
         <Typography variant="h4" fontWeight={700}>
           About Me
         </Typography>
