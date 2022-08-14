@@ -8,6 +8,7 @@ import { Grid, Menu, MenuItem } from "@mui/material";
 import logo from "../assets/logo.svg";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import { styled } from "@mui/material/styles";
 
 const styles = {
   flexRow: {
@@ -18,6 +19,19 @@ const styles = {
     flexDirection: "column",
   },
 };
+
+const CustomHeader = styled(Box)(({ theme }) => ({
+  flexGrow: 1,
+  paddingLeft: 70,
+  paddingRight: 70,
+  paddingTop: 30,
+  paddingBottom: 30,
+
+  [theme.breakpoints.down("sm")]: {
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+}));
 
 export default function Header() {
   const [menu, setMenu] = useState();
@@ -31,7 +45,7 @@ export default function Header() {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, pl: 7, pr: 7, pt: 3, pb: 3 }}>
+    <CustomHeader>
       <AppBar
         position="static"
         sx={{ background: "transparent", boxShadow: "none" }}
@@ -60,7 +74,7 @@ export default function Header() {
               //   onClick={handleOpenMenu}
               color="inherit"
             >
-              <MenuIcon />
+              <MenuIcon fontSize="large" />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -89,7 +103,7 @@ export default function Header() {
           </Grid>
         </Toolbar>
       </AppBar>
-    </Box>
+    </CustomHeader>
   );
 }
 

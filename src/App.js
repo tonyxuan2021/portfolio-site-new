@@ -5,6 +5,8 @@ import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./theme";
+import PortfolioPage from "./pages/PortfolioPage";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -13,7 +15,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
+          <Route path="/portfolio" element={<PortfolioPage />}></Route>
         </Routes>
+        <Contact />
         <Footer />
       </BrowserRouter>
     </ThemeProvider>

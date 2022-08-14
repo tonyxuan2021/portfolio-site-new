@@ -19,10 +19,14 @@ const WrapperStyle = styled(Grid)(({ theme }) => ({
   gap: 20,
   alignItems: "center",
   marginBottom: 100,
+  paddingLeft: 100,
+  paddingRight: 100,
 
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
     justifyContent: "center",
+    paddingLeft: 20,
+    paddingRight: 20,
   },
 }));
 
