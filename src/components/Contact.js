@@ -1,6 +1,14 @@
 import { Button, Divider, Grid, Typography } from "@mui/material";
 import React from "react";
 import { theme } from "../theme";
+import { styled } from "@mui/material/styles";
+
+const DividerStyle = styled(Divider)(({ theme }) => ({
+  width: "55%",
+  [theme.breakpoints.down("md")]: {
+    width: "20%",
+  },
+}));
 
 const Contact = () => {
   return (
@@ -11,15 +19,15 @@ const Contact = () => {
       alignItems="center"
       sx={{ mb: 15 }}
     >
-      <Grid item xs={3}>
+      <Grid item md={3} xs={6}>
         <Typography variant="h4" fontWeight={700}>
           Interested in doing a project together?
         </Typography>
       </Grid>
 
-      <Divider style={{ width: "55%" }} />
+      <DividerStyle />
 
-      <Grid item >
+      <Grid item>
         <Button
           variant="outlined"
           sx={{

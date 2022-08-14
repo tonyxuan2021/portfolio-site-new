@@ -12,7 +12,9 @@ const HeroImg = styled(Grid)(({ theme }) => ({
   backgroundPosition: "center",
   backgroundSize: "cover",
   height: "70vh",
-  //   [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    height: "50vh",
+  },
 }));
 
 const Intro = styled(Grid)(({ theme }) => ({
@@ -24,10 +26,13 @@ const Intro = styled(Grid)(({ theme }) => ({
   background: "white",
   display: "flex",
   flexDirection: "column",
-  [theme.breakpoints.down("sm")]: {
-    position: "static",
-    width: "100%",
+  [theme.breakpoints.down("md")]: {
+    width: "70%",
   },
+  //   [theme.breakpoints.down("sm")]: {
+  //     position: "static",
+  //     width: "100%",
+  //   },
 }));
 
 const Hero = () => {

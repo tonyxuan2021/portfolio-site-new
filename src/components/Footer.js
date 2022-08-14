@@ -35,8 +35,8 @@ export default function Footer() {
             <Typography>CONTACT ME</Typography>
           </Grid>
           <Grid item display="flex" gap={2}>
-            <GitHubIcon />
-            <LinkedInIcon />
+            <GitHubIcon fontSize="large" sx={{ color: "white" }} />
+            <LinkedInIcon fontSize="large" sx={{ color: "white" }} />
           </Grid>
         </Toolbar>
       </AppBar>
