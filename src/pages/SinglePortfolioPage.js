@@ -12,6 +12,20 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 const SingleWrapper = styled(Grid)(({ theme }) => ({
   paddingLeft: 30,
   paddingRight: 30,
+  [theme.breakpoints.up("md")]: {
+    paddingLeft: 100,
+    paddingRight: 100,
+  },
+}));
+
+const SingleLeftWrapper = styled(Grid)(({ theme }) => ({
+  flexDirection: "column",
+  gap: 50,
+  marginTop: 40,
+  borderTop: "1px solid lightgrey",
+  borderBottom: "1px solid lightgrey",
+  paddingTop: 30,
+  paddingBottom: 30,
 }));
 
 const HeroImg = styled(Grid)(({ theme }) => ({
@@ -21,10 +35,32 @@ const HeroImg = styled(Grid)(({ theme }) => ({
   height: "20vh",
   marginBottom: 40,
 
-  // [theme.breakpoints.down("sm")]: {
-  //   paddingLeft: 10,
-  //   paddingRight: 10,
-  // },
+  [theme.breakpoints.up("md")]: {
+    height: "30vh",
+    marginBottom: 0,
+    marginTop: 40,
+  },
+}));
+
+const ProjectIntroMobile = styled(Typography)(({ theme }) => ({
+  [theme.breakpoints.up("md")]: {
+    display: "none",
+  },
+}));
+
+const ProjectIntroTablet = styled(Typography)(({ theme }) => ({
+  display: "none",
+  [theme.breakpoints.up("md")]: {
+    display: "block",
+    marginTop: 40,
+    paddingTop: 40,
+  },
+}));
+
+const SingleFlexWrapper = styled(Grid)(({ theme }) => ({
+  [theme.breakpoints.up("md")]: {
+    justifyContent: "space-between",
+  },
 }));
 
 const SinglePortfolioPage = () => {
@@ -33,52 +69,50 @@ const SinglePortfolioPage = () => {
   return (
     <SingleWrapper Container>
       <HeroImg item></HeroImg>
-      <Grid
-        item
-        display="flex"
-        flexDirection="column"
-        gap={5}
-        sx={{
-          mt: 4,
-          borderTop: "1px solid lightgrey",
-          borderBottom: "1px solid lightgrey",
-          pt: 3,
-          pb: 3,
-        }}
-      >
-        <Typography variant="h3" fontWeight={700}>
-          Manage
-        </Typography>
-        <Typography variant="h6">
-          This project required me to build a fully responsive landing page to
-          the designs provided. I used HTML5, along with CSS Grid and JavaScript
-          for the areas that required interactivity, such as the testimonial
-          slider.
-        </Typography>
-        <Typography
-          fontWeight={700}
-          color={theme.palette.primary.main}
-          variant="h6"
-        >
-          Interaction Design / Front End Development HTML / CSS / JS
-        </Typography>
-        <Button
-          variant="outlined"
-          sx={{
-            borderRadius: 0,
-            color: theme.palette.secondary.main,
-            border: `1px solid  ${theme.palette.secondary.main}`,
-            width: "50%",
-            padding: 1.5,
-            ":hover": {
-              bgcolor: theme.palette.primary.main,
-              color: "white",
-            },
-          }}
-        >
-          <Typography>VISIT WEBSITE</Typography>
-        </Button>
-      </Grid>
+      <SingleFlexWrapper container item display="flex">
+        <SingleLeftWrapper item display="flex" md={6}>
+          <Typography variant="h3" fontWeight={700}>
+            Manage
+          </Typography>
+          <ProjectIntroMobile variant="h6">
+            This project required me to build a fully responsive landing page to
+            the designs provided. I used HTML5, along with CSS Grid and
+            JavaScript for the areas that required interactivity, such as the
+            testimonial slider.
+          </ProjectIntroMobile>
+          <Typography
+            fontWeight={700}
+            color={theme.palette.primary.main}
+            variant="h6"
+          >
+            Interaction Design / Front End Development HTML / CSS / JS
+          </Typography>
+          <Button
+            variant="outlined"
+            sx={{
+              borderRadius: 0,
+              color: theme.palette.secondary.main,
+              border: `1px solid  ${theme.palette.secondary.main}`,
+              width: "50%",
+              padding: 1.5,
+              ":hover": {
+                bgcolor: theme.palette.primary.main,
+                color: "white",
+              },
+            }}
+          >
+            <Typography>VISIT WEBSITE</Typography>
+          </Button>
+        </SingleLeftWrapper>
+        <Grid item md={5}>
+          <ProjectIntroTablet variant="h6">
+            This project required me to build a fully responsive landing page to
+            the designs provided. I used HTML5, along with CSS Grid and
+            JavaScript for the areas that required interactivity, such as the
+            testimonial slider.
+          </ProjectIntroTablet>
+        </Grid>
+      </SingleFlexWrapper>
       <Grid
         item
         sx={{ pt: 4, mb: 4 }}
