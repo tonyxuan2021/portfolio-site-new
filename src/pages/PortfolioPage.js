@@ -6,6 +6,7 @@ import book from "../assets/portfolio/book.jpg";
 import dash from "../assets/portfolio/dash.jpg";
 import { theme } from "../theme";
 import { styled } from "@mui/material/styles";
+import { Link } from "react-router-dom";
 
 const PortfolioWrapper = styled(Grid)(({ theme }) => ({
   display: "flex",
@@ -36,6 +37,10 @@ const PortfolioLeft = styled(Grid)(({ theme }) => ({
     marginBottom: 0,
     height: "32vh",
   },
+  [theme.breakpoints.up("lg")]: {
+    marginBottom: 0,
+    height: "55vh",
+  },
 }));
 
 const PortfolioRight = styled(Grid)(({ theme }) => ({
@@ -52,6 +57,30 @@ const PortfolioRight = styled(Grid)(({ theme }) => ({
     minHeight: 536,
     justifyContent: "center",
   },
+  [theme.breakpoints.up("lg")]: {
+    paddingRight: 100,
+  },
+}));
+
+const PortfolioDesc = styled(Grid)(({ theme }) => ({
+  [theme.breakpoints.up("md")]: {
+    fontSize: 20,
+  },
+}));
+
+const PortfolioBtn = styled(Button)(({ theme }) => ({
+  width: "60%",
+  borderRadius: 0,
+  color: theme.palette.secondary.main,
+  border: `1px solid  ${theme.palette.secondary.main}`,
+  padding: 15,
+  ":hover": {
+    bgcolor: theme.palette.primary.main,
+    color: "white",
+  },
+  [theme.breakpoints.up("md")]: {
+    width: "50%",
+  },
 }));
 
 const PortfolioPage = () => {
@@ -59,7 +88,7 @@ const PortfolioPage = () => {
     <PageWrapper item>
       {projects.map((project) => {
         return (
-          <PortfolioWrapper container>
+          <PortfolioWrapper key={project.id} container>
             <PortfolioLeft
               item
               md={5.5}
@@ -70,29 +99,17 @@ const PortfolioPage = () => {
               <Typography variant="h3" fontWeight={700}>
                 {project.name}
               </Typography>
-              <Typography
-                variant="body1"
+              <PortfolioDesc
                 color={theme.palette.grey.secondary}
                 lineHeight={2}
               >
                 {project.desc}
-              </Typography>
-              <Button
-                variant="outlined"
-                sx={{
-                  width: "60%",
-                  borderRadius: 0,
-                  color: theme.palette.secondary.main,
-                  border: `1px solid  ${theme.palette.secondary.main}`,
-                  padding: 1.5,
-                  ":hover": {
-                    bgcolor: theme.palette.primary.main,
-                    color: "white",
-                  },
-                }}
-              >
-                <Typography>VIEW PROJECT</Typography>
-              </Button>
+              </PortfolioDesc>
+              <Link to={`/portfolio/${project.id}`}>
+                <PortfolioBtn variant="outlined">
+                  <Typography>VIEW PROJECT</Typography>
+                </PortfolioBtn>
+              </Link>
             </PortfolioRight>
           </PortfolioWrapper>
         );
@@ -103,18 +120,21 @@ const PortfolioPage = () => {
 
 const projects = [
   {
+    id: 1,
     image: amazon,
     name: "Amazon.com clone",
     desc: "Built clone of Amazon.com in a team of two that allow users to browse products, add items to cart and then to purchase. This project incorporated Redux hooks with Redux Toolkit for frontend data process and storage, it also used Prisma as primary ORM library for CRUD operations with PostgreSQL database.",
     order: 0,
   },
   {
+    id: 2,
     image: book,
     name: "The Booktown",
     desc: "This e-commerce, full-stack web application allows the users to search and to purchase their favoriate books.",
     order: 1,
   },
   {
+    id: 3,
     image: dash,
     name: "Diamond Admin PRO",
     desc: "This web application is a UI focused, analytics user platform.",

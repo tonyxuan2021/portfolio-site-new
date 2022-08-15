@@ -9,6 +9,7 @@ import logo from "../assets/logo.svg";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { styled } from "@mui/material/styles";
+import { Link } from "react-router-dom";
 
 const styles = {
   flexRow: {
@@ -59,9 +60,11 @@ export default function Header() {
           >
             {navItems.map((item) => {
               return (
-                <Typography variant="body2" color={item.color}>
-                  {item.title}
-                </Typography>
+                <Link key={item.id} to={`${item.link}`}>
+                  <Typography variant="body2" color={item.color}>
+                    {item.title}
+                  </Typography>
+                </Link>
               );
             })}
           </Grid>
@@ -109,18 +112,25 @@ export default function Header() {
 
 const navItems = [
   {
+    id: 1,
     title: "HOME",
     color: theme.palette.primary.main,
+    link: "/",
   },
   {
+    id: 2,
     title: "PORTFOLIO",
     color: theme.palette.secondary.main,
+    link: "/portfolio",
   },
   {
+    id: 3,
     title: "CONTACT ME",
     color: theme.palette.secondary.main,
+    link: "/contact",
   },
   {
+    id: 4,
     title: "RESUME",
     color: theme.palette.secondary.main,
   },

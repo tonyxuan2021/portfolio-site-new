@@ -19,7 +19,6 @@ const HomePage = () => {
     <CustomWrapper>
       <Hero />
       <Content />
-      {/* <Contact /> */}
     </CustomWrapper>
   );
 };
