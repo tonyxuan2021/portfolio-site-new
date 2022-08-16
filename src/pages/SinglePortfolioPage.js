@@ -1,5 +1,5 @@
 import { Button, Divider, Grid, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import amzHero from "../assets/portfolio/amazon/amazonHero.png";
 import bktHero from "../assets/portfolio/book/bkthero.png";
@@ -91,14 +91,43 @@ const SinglePortfolioPage = ({ setShowContact }) => {
   setShowContact(true);
   const { id } = useParams();
 
-  const matchedProjects = projects.find((project) => {
-    return project.id == id;
-  });
+  const [index, setIndex] = useState(parseInt(id) - 1);
+  console.log(index);
 
+  const checkNumber = (number) => {
+    if (number > projects.length - 1) {
+      return 0;
+    }
+    if (number < 0) {
+      return projects.length - 1;
+    }
+    return number;
+  };
+
+  const nextProject = () => {
+    setIndex((index) => {
+      let newIndex = index + 1;
+      return checkNumber(newIndex);
+    });
+    window.scroll(0, 0);
+  };
+
+  const lastProject = () => {
+    setIndex((index) => {
+      let newIndex = index - 1;
+      return checkNumber(newIndex);
+    });
+    window.scroll(0, 0);
+  };
+
+  //   const matchedProjects = projects.find((project) => {
+  //     return project.id == id;
+  //   });
+
+  //   const { title, backgroundtext, intro, demoimg, hero, tech, link, github } =
+  //     matchedProjects;
   const { title, backgroundtext, intro, demoimg, hero, tech, link, github } =
-    matchedProjects;
-
-  console.log(matchedProjects);
+    projects[index];
 
   return (
     <SingleWrapper Container>
@@ -149,7 +178,7 @@ const SinglePortfolioPage = ({ setShowContact }) => {
         <Typography variant="h4">Project Background</Typography>
         <Typography variant="h6">{backgroundtext}</Typography>
         <Typography variant="h4">Static Previews</Typography>
-        {demoimg.map((img) => {
+        {demoimg.map((img, index) => {
           return (
             <img
               style={{
@@ -158,6 +187,7 @@ const SinglePortfolioPage = ({ setShowContact }) => {
                 objectFit: "cover",
               }}
               src={img}
+              key={index}
             ></img>
           );
         })}
@@ -174,16 +204,31 @@ const SinglePortfolioPage = ({ setShowContact }) => {
           p: 2,
         }}
       >
-        <Grid item display="flex" flexDirection="column">
+        <Grid
+          item
+          display="flex"
+          flexDirection="column"
+          onClick={lastProject}
+          sx={{ cursor: "pointer" }}
+        >
           <ChevronLeftIcon />
-          <Typography variant="h5">Fylo</Typography>
-          <Typography>Previous Project</Typography>
+          {/* <Typography variant="h5">Fylo</Typography> */}
+          <Typography variant="h6">Previous Project</Typography>
         </Grid>
         <Divider orientation="vertical" flexItem />
-        <Grid item display="flex" flexDirection="column" alignItems="end">
+        <Grid
+          item
+          display="flex"
+          flexDirection="column"
+          alignItems="end"
+          onClick={nextProject}
+          sx={{ cursor: "pointer" }}
+        >
           <ChevronRightIcon />
-          <Typography variant="h5">Bookmark</Typography>
-          <Typography>Next Project</Typography>
+          {/* <Typography variant="h5">Bookmark</Typography> */}
+          <Typography variant="h6" y>
+            Next Project
+          </Typography>
         </Grid>
       </Grid>
     </SingleWrapper>

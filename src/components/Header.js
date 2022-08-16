@@ -35,14 +35,15 @@ const CustomHeader = styled(Box)(({ theme }) => ({
 }));
 
 export default function Header() {
-  const [menu, setMenu] = useState();
+  const [anchorEl, setAnchorEl] = useState();
+  const open = Boolean(anchorEl);
 
-  const handleOpenMenu = (event) => {
-    setMenu(event.currentTarget);
+  const handleClick = (e) => {
+    setAnchorEl(e.currentTarget);
   };
 
-  const handleCloseMenu = () => {
-    setMenu(null);
+  const handleClose = (e) => {
+    setAnchorEl(null);
   };
 
   return (
@@ -52,7 +53,9 @@ export default function Header() {
         sx={{ background: "transparent", boxShadow: "none" }}
       >
         <Toolbar sx={[styles.flexRow, { justifyContent: "space-between" }]}>
-          <img src={logo}></img>
+          <Link to="/">
+            <img src={logo}></img>
+          </Link>
           <Grid
             item
             sx={[styles.flexRow, { display: { xs: "none", sm: "flex" } }]}
@@ -70,7 +73,10 @@ export default function Header() {
             <a
               target="_blank"
               href="https://drive.google.com/file/d/1Qe4lthwjK6yGc-16sPJc8WwKMKdBXkm_/view?usp=sharing"
-              style={{ color: theme.palette.secondary.main, fontSize:"0.875rem" }}
+              style={{
+                color: theme.palette.secondary.main,
+                fontSize: "0.875rem",
+              }}
             >
               RESUME
             </a>
@@ -81,34 +87,21 @@ export default function Header() {
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              //   onClick={handleOpenMenu}
               color="inherit"
+              onClick={handleClick}
             >
               <MenuIcon fontSize="large" />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={menu}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(menu)}
-              //   onClose={handleCloseMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {/* {navItems.map((item) => (
-                <MenuItem key={item} onClick={handleCloseMenu}>
-                  <Typography textAlign="center">{item}</Typography>
-                </MenuItem>
-              ))} */}
+            <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
+              {navItems.map((item) => {
+                return (
+                  <MenuItem onClick={handleClose}>
+                    <Link to={item.link}>
+                      <Typography color={item.color}>{item.title}</Typography>
+                    </Link>
+                  </MenuItem>
+                );
+              })}
             </Menu>
           </Grid>
         </Toolbar>
