@@ -39,15 +39,9 @@ const SingleLeftWrapper = styled(Grid)(({ theme }) => ({
   borderBottom: "1px solid lightgrey",
   paddingTop: 30,
   paddingBottom: 30,
-
-  //   [theme.breakpoints.up("lg")]: {
-  //     flexDirection: "row",
-  //   },
 }));
 
 const HeroImg = styled(Grid)(({ theme }) => ({
-  //   backgroundImage: `url(${matchedProjects})`,
-  //   backgroundPosition: "center",
   backgroundSize: "cover",
   height: "20vh",
   marginBottom: 40,
@@ -93,7 +87,8 @@ const SingleFlexWrapper = styled(Grid)(({ theme }) => ({
   },
 }));
 
-const SinglePortfolioPage = () => {
+const SinglePortfolioPage = ({ setShowContact }) => {
+  setShowContact(true);
   const { id } = useParams();
 
   const matchedProjects = projects.find((project) => {

@@ -8,18 +8,35 @@ import { theme } from "./theme";
 import PortfolioPage from "./pages/PortfolioPage";
 import Contact from "./components/Contact";
 import SinglePortfolioPage from "./pages/SinglePortfolioPage";
+import ContactPage from "./pages/ContactPage";
+import { useState } from "react";
 
 function App() {
+  const [showContact, setShowContact] = useState(true);
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/portfolio" element={<PortfolioPage />}></Route>
-          <Route path="/portfolio/:id" element={<SinglePortfolioPage />}></Route>
+          <Route
+            path="/"
+            element={<HomePage setShowContact={setShowContact} />}
+          ></Route>
+          <Route
+            path="/contact"
+            element={<ContactPage setShowContact={setShowContact} />}
+          ></Route>
+          <Route
+            path="/portfolio"
+            element={<PortfolioPage setShowContact={setShowContact} />}
+          ></Route>
+          <Route
+            path="/portfolio/:id"
+            element={<SinglePortfolioPage setShowContact={setShowContact} />}
+          ></Route>
         </Routes>
-        <Contact />
+        {showContact && <Contact />}
         <Footer />
       </BrowserRouter>
     </ThemeProvider>

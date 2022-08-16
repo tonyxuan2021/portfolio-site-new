@@ -67,6 +67,13 @@ export default function Header() {
                 </Link>
               );
             })}
+            <a
+              target="_blank"
+              href="https://drive.google.com/file/d/1Qe4lthwjK6yGc-16sPJc8WwKMKdBXkm_/view?usp=sharing"
+              style={{ color: theme.palette.secondary.main, fontSize:"0.875rem" }}
+            >
+              RESUME
+            </a>
           </Grid>
           <Grid item sx={{ display: { xs: "flex", sm: "none" } }}>
             <IconButton
@@ -129,9 +136,10 @@ const navItems = [
     color: theme.palette.secondary.main,
     link: "/contact",
   },
-  {
-    id: 4,
-    title: "RESUME",
-    color: theme.palette.secondary.main,
-  },
+  //   {
+  //     id: 4,
+  //     title: "RESUME",
+  //     color: theme.palette.secondary.main,
+  //     link: "https://drive.google.com/file/d/1Qe4lthwjK6yGc-16sPJc8WwKMKdBXkm_/view?usp=sharing",
+  //   },
 ];

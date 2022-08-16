@@ -83,7 +83,8 @@ const PortfolioBtn = styled(Button)(({ theme }) => ({
   },
 }));
 
-const PortfolioPage = () => {
+const PortfolioPage = ({setShowContact}) => {
+    setShowContact(true)
   return (
     <PageWrapper item>
       {projects.map((project) => {

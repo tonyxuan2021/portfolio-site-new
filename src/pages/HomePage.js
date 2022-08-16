@@ -14,7 +14,8 @@ const CustomWrapper = styled(Box)(({ theme }) => ({
   },
 }));
 
-const HomePage = () => {
+const HomePage = ({ setShowContact }) => {
+  setShowContact(true);
   return (
     <CustomWrapper>
       <Hero />
