@@ -76,10 +76,7 @@ const PortfolioBtn = styled(Button)(({ theme }) => ({
   border: `1px solid  ${theme.palette.secondary.main}`,
   padding: 15,
   marginBottom: 30,
-  ":hover": {
-    bgcolor: theme.palette.primary.main,
-    color: "white",
-  },
+
   [theme.breakpoints.up("md")]: {
     width: "50%",
   },
@@ -110,7 +107,15 @@ const PortfolioPage = ({ setShowContact }) => {
                 {project.desc}
               </PortfolioDesc>
               <Link to={`/portfolio/${project.id}`}>
-                <PortfolioBtn variant="outlined">
+                <PortfolioBtn
+                  variant="outlined"
+                  sx={{
+                    ":hover": {
+                      bgcolor: theme.palette.primary.main,
+                      color: "white",
+                    },
+                  }}
+                >
                   <Typography>VIEW PROJECT</Typography>
                 </PortfolioBtn>
               </Link>
