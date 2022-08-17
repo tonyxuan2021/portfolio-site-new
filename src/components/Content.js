@@ -22,7 +22,7 @@ const ImgWrap = styled(Grid)(({ theme }) => ({
 const AboutMeText = styled(Typography)(({ theme }) => ({
   textAlign: "justify",
   fontSize: 18,
-  lineHeight: 2,
+  lineHeight: 1.6,
   [theme.breakpoints.up("sm")]: {
     lineHeight: 1.2,
   },
