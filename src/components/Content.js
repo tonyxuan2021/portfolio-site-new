@@ -3,21 +3,19 @@ import React from "react";
 import photo from "../assets/Xuan Ye.jpg";
 import { theme } from "../theme";
 import { styled } from "@mui/material/styles";
+import { Link } from "react-router-dom";
 
 const ProfileImg = styled("img")(({ theme }) => ({
   width: "100%",
-  height: "70vh",
-  [theme.breakpoints.down("md")]: {
-    height: "45vh",
-  },
-  [theme.breakpoints.down("sm")]: {
-    height: "30vh",
+  height: "40vh",
+  [theme.breakpoints.up("md")]: {
+    height: "58vh",
   },
 }));
 
 const ImgWrap = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
-    marginTop: 120,
+    marginTop: 140,
   },
 }));
 
@@ -25,8 +23,11 @@ const AboutMeText = styled(Typography)(({ theme }) => ({
   textAlign: "justify",
   fontSize: 18,
   lineHeight: 2,
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.up("sm")]: {
     lineHeight: 1.2,
+  },
+  [theme.breakpoints.up("md")]: {
+    lineHeight: 1.4,
   },
 }));
 
@@ -38,7 +39,7 @@ const AboutMeWrap = styled(Grid)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
-  gap: 15,
+  gap: 40,
   [theme.breakpoints.down("md")]: {
     justifyContent: "center",
   },
@@ -50,31 +51,26 @@ const AboutMeWrap = styled(Grid)(({ theme }) => ({
 }));
 
 const PortfolioBtn = styled(Button)(({ theme }) => ({
-  borderRadius: 0,
-  color: theme.palette.secondary.main,
-  border: `1px solid  ${theme.palette.secondary.main}`,
-  width: "50%",
   padding: 15,
-  ":hover": {
-    bgcolor: theme.palette.primary.main,
-    color: "white",
-  },
-  [theme.breakpoints.down("md")]: {
+  justifyContent: "center",
+  width: "70%",
+  [theme.breakpoints.up("md")]: {
     padding: 20,
     justifyContent: "center",
     width: "70%",
     padding: 10,
   },
-  [theme.breakpoints.down("sm")]: {
-    padding: 5,
-    justifyContent: "center",
-    width: "80%",
-  },
 }));
 
 const Content = () => {
   return (
-    <Grid container display="flex" gap={8} alignItems="center" sx={{ mb: 15 }}>
+    <Grid
+      container
+      display="flex"
+      gap={2}
+      alignItems="center"
+      justifyContent="space-between"
+    >
       <Grid item md={5} sm={4.5} xs={12}>
         <ImgWrap item>
           <ProfileImg
@@ -86,11 +82,19 @@ const Content = () => {
           ></ProfileImg>
         </ImgWrap>
       </Grid>
-      <AboutMeWrap item md={5} sm={6} xs={12}>
-        <Typography variant="h4" fontWeight={700}>
+      <AboutMeWrap
+        item
+        md={6}
+        sm={6}
+        xs={12}
+        // display="flex"
+        // flexDirection="column"
+        // gap={}
+      >
+        <Typography variant="h3" fontWeight={700}>
           About Me
         </Typography>
-        <AboutMeText>
+        <AboutMeText color={theme.palette.secondary.main}>
           I've enjoyed my 5-year career as an accountant. I am wired to help
           others, and to provide prudential consultation to solve complex
           financial issues. Now, I am exited to pivot my career from the world
@@ -102,9 +106,22 @@ const Content = () => {
           knowledge. I love coding and I look forward to connecting with you
           about how we can work together!
         </AboutMeText>
-        <PortfolioBtn variant="outlined">
-          <Typography variant="body2">GO TO PORTFOLIO</Typography>
-        </PortfolioBtn>
+        <Link to="/portfolio">
+          <PortfolioBtn
+            variant="outlined"
+            sx={{
+              borderRadius: 0,
+              color: theme.palette.secondary.main,
+              border: `1px solid  ${theme.palette.secondary.main}`,
+              ":hover": {
+                bgcolor: theme.palette.primary.main,
+                color: "white",
+              },
+            }}
+          >
+            <Typography variant="body2">GO TO PORTFOLIO</Typography>
+          </PortfolioBtn>
+        </Link>
       </AboutMeWrap>
     </Grid>
   );

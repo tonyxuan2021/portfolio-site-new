@@ -23,20 +23,41 @@ const styles = {
 
 const CustomHeader = styled(Box)(({ theme }) => ({
   flexGrow: 1,
-  paddingLeft: 70,
-  paddingRight: 70,
+  paddingLeft: 10,
+  paddingRight: 10,
   paddingTop: 30,
   paddingBottom: 30,
 
-  [theme.breakpoints.down("sm")]: {
+  [theme.breakpoints.up("md")]: {
     paddingLeft: 10,
     paddingRight: 10,
+  },
+
+  [theme.breakpoints.up("lg")]: {
+    paddingLeft: 80,
+    paddingRight: 80,
+  },
+}));
+
+const NavText = styled(Typography)(({ theme }) => ({
+  ":hover": {
+    color: theme.palette.primary.main,
+    // color: "white",
   },
 }));
 
 export default function Header() {
+  const [fontColor, setFontColor] = useState(theme.palette.secondary.main);
   const [anchorEl, setAnchorEl] = useState();
   const open = Boolean(anchorEl);
+
+  const handleColorChange = () => {
+    setFontColor(
+      fontColor === theme.palette.secondary.main
+        ? theme.palette.primary.main
+        : theme.palette.secondary.main
+    );
+  };
 
   const handleClick = (e) => {
     setAnchorEl(e.currentTarget);
@@ -64,21 +85,23 @@ export default function Header() {
             {navItems.map((item) => {
               return (
                 <Link key={item.id} to={`${item.link}`}>
-                  <Typography variant="body2" color={item.color}>
+                  <NavText
+                    // onClick={handleColorChange}
+                    variant="body2"
+                    color={theme.palette.secondary.main}
+                  >
                     {item.title}
-                  </Typography>
+                  </NavText>
                 </Link>
               );
             })}
             <a
               target="_blank"
               href="https://drive.google.com/file/d/1Qe4lthwjK6yGc-16sPJc8WwKMKdBXkm_/view?usp=sharing"
-              style={{
-                color: theme.palette.secondary.main,
-                fontSize: "0.875rem",
-              }}
             >
-              RESUME
+              <NavText variant="body2" color={theme.palette.secondary.main}>
+                RESUME
+              </NavText>
             </a>
           </Grid>
           <Grid item sx={{ display: { xs: "flex", sm: "none" } }}>
@@ -97,11 +120,25 @@ export default function Header() {
                 return (
                   <MenuItem onClick={handleClose}>
                     <Link to={item.link}>
-                      <Typography color={item.color}>{item.title}</Typography>
+                      <Typography color={theme.palette.secondary.main}>
+                        {item.title}
+                      </Typography>
                     </Link>
                   </MenuItem>
                 );
               })}
+              <MenuItem>
+                <a
+                  target="_blank"
+                  href="https://drive.google.com/file/d/1Qe4lthwjK6yGc-16sPJc8WwKMKdBXkm_/view?usp=sharing"
+                  style={{
+                    color: theme.palette.secondary.main,
+                    fontSize: "1rem",
+                  }}
+                >
+                  RESUME
+                </a>
+              </MenuItem>
             </Menu>
           </Grid>
         </Toolbar>
@@ -114,19 +151,19 @@ const navItems = [
   {
     id: 1,
     title: "HOME",
-    color: theme.palette.primary.main,
+    // color: theme.palette.primary.main,
     link: "/",
   },
   {
     id: 2,
     title: "PORTFOLIO",
-    color: theme.palette.secondary.main,
+    // color: theme.palette.secondary.main,
     link: "/portfolio",
   },
   {
     id: 3,
     title: "CONTACT ME",
-    color: theme.palette.secondary.main,
+    // color: theme.palette.secondary.main,
     link: "/contact",
   },
   //   {

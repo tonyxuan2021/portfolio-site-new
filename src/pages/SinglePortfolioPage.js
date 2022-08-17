@@ -33,7 +33,7 @@ const SingleWrapper = styled(Grid)(({ theme }) => ({
 
 const SingleLeftWrapper = styled(Grid)(({ theme }) => ({
   flexDirection: "column",
-  gap: 50,
+  gap: 30,
   marginTop: 40,
   borderTop: "1px solid lightgrey",
   borderBottom: "1px solid lightgrey",
@@ -43,8 +43,8 @@ const SingleLeftWrapper = styled(Grid)(({ theme }) => ({
 
 const HeroImg = styled(Grid)(({ theme }) => ({
   backgroundSize: "cover",
-  height: "20vh",
-  marginBottom: 40,
+  height: "25vh",
+  //   marginBottom: 40,
 
   [theme.breakpoints.up("md")]: {
     height: "30vh",
@@ -120,12 +120,6 @@ const SinglePortfolioPage = ({ setShowContact }) => {
     window.scroll(0, 0);
   };
 
-  //   const matchedProjects = projects.find((project) => {
-  //     return project.id == id;
-  //   });
-
-  //   const { title, backgroundtext, intro, demoimg, hero, tech, link, github } =
-  //     matchedProjects;
   const { title, backgroundtext, intro, demoimg, hero, tech, link, github } =
     projects[index];
 
@@ -194,6 +188,7 @@ const SinglePortfolioPage = ({ setShowContact }) => {
       </Grid>
 
       <Grid
+        container
         item
         display="flex"
         justifyContent="space-between"
@@ -210,10 +205,11 @@ const SinglePortfolioPage = ({ setShowContact }) => {
           flexDirection="column"
           onClick={lastProject}
           sx={{ cursor: "pointer" }}
+          xs={5}
         >
           <ChevronLeftIcon />
           {/* <Typography variant="h5">Fylo</Typography> */}
-          <Typography variant="h6">Previous Project</Typography>
+          <Typography variant="body1">Previous Project</Typography>
         </Grid>
         <Divider orientation="vertical" flexItem />
         <Grid
@@ -223,10 +219,11 @@ const SinglePortfolioPage = ({ setShowContact }) => {
           alignItems="end"
           onClick={nextProject}
           sx={{ cursor: "pointer" }}
+          xs={5}
         >
           <ChevronRightIcon />
           {/* <Typography variant="h5">Bookmark</Typography> */}
-          <Typography variant="h6" y>
+          <Typography variant="body1" y>
             Next Project
           </Typography>
         </Grid>

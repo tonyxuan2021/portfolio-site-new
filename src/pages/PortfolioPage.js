@@ -1,6 +1,5 @@
 import { Button, Grid, Typography } from "@mui/material";
 import React from "react";
-import hero from "../assets/portfolio/image-portfolio-manage.jpg";
 import amazon from "../assets/portfolio/amazon.jpg";
 import book from "../assets/portfolio/book.jpg";
 import dash from "../assets/portfolio/dash.jpg";
@@ -11,19 +10,20 @@ import { Link } from "react-router-dom";
 const PortfolioWrapper = styled(Grid)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  marginBottom: 80,
+  // marginBottom: 80,
   [theme.breakpoints.up("md")]: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 100,
+    height: "480px",
+    // marginBottom: 100,
   },
 }));
 
 const PageWrapper = styled(Grid)(({ theme }) => ({
   paddingLeft: 30,
   paddingRight: 30,
-  [theme.breakpoints.up("md")]: {
+  [theme.breakpoints.up("lg")]: {
     paddingLeft: 100,
     paddingRight: 100,
   },
@@ -35,7 +35,7 @@ const PortfolioLeft = styled(Grid)(({ theme }) => ({
   height: "38vh",
   [theme.breakpoints.up("md")]: {
     marginBottom: 0,
-    height: "32vh",
+    height: "36vh",
   },
   [theme.breakpoints.up("lg")]: {
     marginBottom: 0,
@@ -45,16 +45,17 @@ const PortfolioLeft = styled(Grid)(({ theme }) => ({
 
 const PortfolioRight = styled(Grid)(({ theme }) => ({
   paddingTop: 30,
-  paddingBottom: 30,
   marginTop: 30,
+  marginBottom: 80,
   borderTop: "1px solid lightgrey",
   borderBottom: "1px solid lightgrey",
   flexDirection: "column",
   [theme.breakpoints.up("md")]: {
     marginTop: 0,
-    paddingTop: 50,
-    paddingBottom: 50,
-    minHeight: 536,
+    marginBottom: 0,
+    paddingTop: 20,
+    paddingBottom: 20,
+    // minHeight: 400,
     justifyContent: "center",
   },
   [theme.breakpoints.up("lg")]: {
@@ -74,6 +75,7 @@ const PortfolioBtn = styled(Button)(({ theme }) => ({
   color: theme.palette.secondary.main,
   border: `1px solid  ${theme.palette.secondary.main}`,
   padding: 15,
+  marginBottom: 30,
   ":hover": {
     bgcolor: theme.palette.primary.main,
     color: "white",
@@ -83,8 +85,9 @@ const PortfolioBtn = styled(Button)(({ theme }) => ({
   },
 }));
 
-const PortfolioPage = ({setShowContact}) => {
-    setShowContact(true)
+const PortfolioPage = ({ setShowContact }) => {
+  setShowContact(true);
+  //   let width = window.innerWidth;
   return (
     <PageWrapper item>
       {projects.map((project) => {
@@ -102,7 +105,7 @@ const PortfolioPage = ({setShowContact}) => {
               </Typography>
               <PortfolioDesc
                 color={theme.palette.grey.secondary}
-                lineHeight={2}
+                lineHeight={1.2}
               >
                 {project.desc}
               </PortfolioDesc>
@@ -132,7 +135,7 @@ const projects = [
     image: book,
     name: "The Booktown",
     desc: "This e-commerce, full-stack web application allows the users to search and to purchase their favoriate books.",
-    order: 1,
+    order: 0,
   },
   {
     id: 3,

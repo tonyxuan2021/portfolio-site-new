@@ -52,6 +52,7 @@ export default function Footer() {
             <Link
               to="/portfolio"
               style={{ textDecoration: "none", cursor: "pointer" }}
+              //   onClick={window.scroll(0, 0)}
             >
               <Typography color="white">PORTFOLIO</Typography>
             </Link>

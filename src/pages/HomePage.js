@@ -6,11 +6,15 @@ import Hero from "../components/Hero";
 import { styled } from "@mui/material/styles";
 
 const CustomWrapper = styled(Box)(({ theme }) => ({
-  paddingLeft: 100,
-  paddingRight: 100,
-  [theme.breakpoints.down("sm")]: {
+  paddingLeft: 30,
+  paddingRight: 30,
+  [theme.breakpoints.up("md")]: {
     paddingLeft: 30,
     paddingRight: 30,
+  },
+  [theme.breakpoints.up("lg")]: {
+    paddingLeft: 100,
+    paddingRight: 100,
   },
 }));
 
