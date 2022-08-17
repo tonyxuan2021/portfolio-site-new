@@ -256,7 +256,7 @@ const projects = [
     backgroundtext:
       "This is the individual capstone project I build within the Bootcamp. My original idea was to build an e-commerce booking selling site, where users can add their favoriate books to cart, and finally being able to checkout. The biggest challenge I faced was to undertand how Context API works in React, so that the cart info will be accessible to the global state system, and therefore being able to sync with the order deatils that users select. In this project, I learnt the concept of context API, and also practiced the workflow of authorization and authentication.",
     demoimg: [bkt1, bkt2, bkt3],
-    link: "https://amazon-clone-josh-tony.herokuapp.com/",
+    link: "https://book-town.herokuapp.com/",
     github: "https://github.com/JoshL579/amazon-clone",
   },
   {
@@ -269,7 +269,7 @@ const projects = [
     backgroundtext:
       "This project was built to showcase my frontend skills, especially on the use of MUI library. The purpose of this project was mainly to practice the MUI workflow, as MUI is widely used by the industry nowadays. In this project, I learnt the implenting of MUI will accelerate the web application building process. The library also includes incredibly useful components such as Textfield, Ratings, Pagination, tabs ,and etc. I will continue using MUI to build other projects.",
     demoimg: [dsb1, dsb2, dsb3, dsb4, dsb5],
-    link: "https://amazon-clone-josh-tony.herokuapp.com/",
+    link: "https://dashboard-diamond-admin.herokuapp.com/",
     github: "https://github.com/JoshL579/amazon-clone",
   },
 ];
