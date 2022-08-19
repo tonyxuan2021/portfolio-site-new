@@ -140,7 +140,7 @@ const projects = [
     image: book,
     name: "The Booktown",
     desc: "This e-commerce, full-stack web application allows the users to search and to purchase their favoriate books.",
-    order: 0,
+    order: 1,
   },
   {
     id: 3,
