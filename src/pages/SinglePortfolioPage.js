@@ -139,7 +139,7 @@ const SinglePortfolioPage = ({ setShowContact }) => {
           >
             {tech}
           </Typography>
-          <Link target="_blank" href={link}>
+          <Link target="_blank" href={link} style={{ textDecoration: "none" }}>
             <Button
               variant="outlined"
               sx={{
