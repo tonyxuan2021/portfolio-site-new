@@ -1,4 +1,11 @@
-import { Button, Divider, Grid, Typography } from "@mui/material";
+import {
+  Button,
+  Divider,
+  Grid,
+  Typography,
+  Stack,
+  IconButton,
+} from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import amzHero from "../assets/portfolio/amazon/amazonHero.png";
@@ -21,6 +28,8 @@ import dsb4 from "../assets/portfolio/dash/dsbwidget.png";
 import dsb5 from "../assets/portfolio/dash/dsbproduct.png";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LaunchIcon from "@mui/icons-material/Launch";
 
 const SingleWrapper = styled(Grid)(({ theme }) => ({
   paddingLeft: 30,
@@ -139,24 +148,58 @@ const SinglePortfolioPage = ({ setShowContact }) => {
           >
             {tech}
           </Typography>
-          <Link target="_blank" href={link} style={{ textDecoration: "none" }}>
-            <Button
-              variant="outlined"
-              sx={{
-                borderRadius: 0,
-                color: theme.palette.secondary.main,
-                border: `1px solid  ${theme.palette.secondary.main}`,
-                width: "50%",
-                padding: 1.5,
-                ":hover": {
-                  bgcolor: theme.palette.primary.main,
-                  color: "white",
-                },
-              }}
+          <Grid item display="flex" gap={1}>
+            <Link
+              target="_blank"
+              href={link}
+              style={{ textDecoration: "none" }}
             >
-              <Typography>VISIT WEBSITE</Typography>
-            </Button>
-          </Link>
+              <Button
+                variant="outlined"
+                sx={{
+                  borderRadius: 0,
+                  color: theme.palette.secondary.main,
+                  border: `1px solid  ${theme.palette.secondary.main}`,
+                  // width: "50%",
+                  padding: 1.5,
+                  ":hover": {
+                    bgcolor: theme.palette.primary.main,
+                    color: "white",
+                  },
+                  display: "flex",
+                  alignItems: "flex-start",
+                }}
+                startIcon={<LaunchIcon />}
+              >
+                <Typography>VISIT WEBSITE</Typography>
+              </Button>
+            </Link>
+            <Link
+              target="_blank"
+              href={github}
+              style={{ textDecoration: "none" }}
+            >
+              <Button
+                variant="outlined"
+                sx={{
+                  borderRadius: 0,
+                  color: theme.palette.secondary.main,
+                  border: `1px solid  ${theme.palette.secondary.main}`,
+                  // width: "50%",
+                  padding: 1.5,
+                  ":hover": {
+                    bgcolor: theme.palette.primary.main,
+                    color: "white",
+                  },
+                  display: "flex",
+                  alignItems: "flex-start",
+                }}
+                startIcon={<GitHubIcon />}
+              >
+                GitHub
+              </Button>
+            </Link>
+          </Grid>
         </SingleLeftWrapper>
         <Grid item md={5} lg={0}>
           <ProjectIntroTablet variant="h6">{intro}</ProjectIntroTablet>
@@ -257,7 +300,7 @@ const projects = [
       "This is the individual capstone project I build within the Bootcamp. My original idea was to build an e-commerce booking selling site, where users can add their favoriate books to cart, and finally being able to checkout. The biggest challenge I faced was to undertand how Context API works in React, so that the cart info will be accessible to the global state system, and therefore being able to sync with the order deatils that users select. In this project, I learnt the concept of context API, and also practiced the workflow of authorization and authentication.",
     demoimg: [bkt1, bkt2, bkt3],
     link: "https://book-town.herokuapp.com/",
-    github: "https://github.com/JoshL579/amazon-clone",
+    github: "https://github.com/tonyxuan2021/xuan-ye-the-booktown-frontend",
   },
   {
     id: 3,
@@ -270,7 +313,7 @@ const projects = [
       "This project was built to showcase my frontend skills, especially on the use of MUI library. The purpose of this project was mainly to practice the MUI workflow, as MUI is widely used by the industry nowadays. In this project, I learnt the implenting of MUI will accelerate the web application building process. The library also includes incredibly useful components such as Textfield, Ratings, Pagination, tabs ,and etc. I will continue using MUI to build other projects.",
     demoimg: [dsb1, dsb2, dsb3, dsb4, dsb5],
     link: "https://dashboard-diamond-admin.herokuapp.com/",
-    github: "https://github.com/JoshL579/amazon-clone",
+    github: "https://github.com/tonyxuan2021/dashboard-frontend",
   },
 ];
 
