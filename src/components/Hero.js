@@ -4,6 +4,7 @@ import hero from "../assets/hero.jpg";
 import { theme } from "../theme";
 import downArrow from "../assets/down-arrows.svg";
 import { styled } from "@mui/material/styles";
+import Typewriter from "typewriter-effect";
 import { Link } from "react-router-dom";
 
 const HeroImg = styled(Grid)(({ theme }) => ({
@@ -80,8 +81,35 @@ const Hero = () => {
     <HeroImg item>
       <Intro item gap={5}>
         <IntroText fontWeight={700}>
-          Hey, I'm Tony and I am a full-stack web developer
+          <Typewriter
+            onInit={(typewriter) => {
+              typewriter
+                .typeString("Welcome!")
+                .pauseFor(2000)
+                .deleteAll()
+                .typeString(
+                  "My name is Tony and I am a full-stack web developer."
+                )
+                .pauseFor(2000)
+                .deleteAll()
+                .typeString("Have you checked my portfolio projects?")
+                .pauseFor(2000)
+                .deleteAll()
+                .typeString("Ready to hire me?")
+                .pauseFor(2000)
+                .deleteAll()
+                .typeString(";)")
+                .pauseFor(2000)
+                .deleteAll()
+                .start();
+            }}
+            options={{
+              autoStart: true,
+              loop: true,
+            }}
+          />
         </IntroText>
+
         <a href="#about">
           <IntroBtn variant="contained" id="about">
             <img
