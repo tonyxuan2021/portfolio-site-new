@@ -286,7 +286,7 @@ const projects = [
     backgroundtext:
       "This project was built after I graduted from the Bootcamp. From the Bootcamp, I was introduced to various frequently used React hooks, including UseState and UseEffect. However, I wanted to build a e-commerce website and after the research, I learnt that Redux can be used to better handle the global state management. Creating this project has helped me refine my knowledge on full-stack application workflow, and to solve real-world coding problems. I've also learned to work with Prisma at backend, as well as getting more comforatble using Material UI framework.",
     demoimg: [amz1, amz2, amz3],
-    link: "https://amazon-clone-josh-tony.herokuapp.com/",
+    link: "https://amazon.xuanye.ca/",
     github: "https://github.com/JoshL579/amazon-clone",
   },
   {
