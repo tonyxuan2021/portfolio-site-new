@@ -35,11 +35,10 @@ const PortfolioLeft = styled(Grid)(({ theme }) => ({
   height: "38vh",
   [theme.breakpoints.up("md")]: {
     marginBottom: 0,
-    height: "36vh",
+    height: "30vh",
   },
   [theme.breakpoints.up("lg")]: {
     marginBottom: 0,
-    height: "55vh",
   },
 }));
 
