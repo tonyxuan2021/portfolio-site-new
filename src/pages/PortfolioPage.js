@@ -35,7 +35,8 @@ const PortfolioLeft = styled(Grid)(({ theme }) => ({
   height: "38vh",
   [theme.breakpoints.up("md")]: {
     marginBottom: 0,
-    height: "30vh",
+    height: "400px",
+    width: "380px",
   },
   [theme.breakpoints.up("lg")]: {
     marginBottom: 0,
@@ -54,7 +55,6 @@ const PortfolioRight = styled(Grid)(({ theme }) => ({
     marginBottom: 0,
     paddingTop: 20,
     paddingBottom: 20,
-    // minHeight: 400,
     justifyContent: "center",
   },
   [theme.breakpoints.up("lg")]: {
