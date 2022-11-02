@@ -97,7 +97,7 @@ export default function Header() {
             })}
             <a
               target="_blank"
-              href="https://drive.google.com/file/d/1a4A73N7SDV6LH0b9ypp6h1gDimXF7SVa/view?usp=sharing"
+              href="https://drive.google.com/file/d/1fQsufGAcBd0h9lmJst0T_lpAs_7GjpOB/view?usp=sharing"
             >
               <NavText variant="body2" color={theme.palette.secondary.main}>
                 RESUME
